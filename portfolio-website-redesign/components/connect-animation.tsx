@@ -36,7 +36,7 @@ export function ConnectionAnimation({ shape = "circle" }: { shape?: "circle" | "
     if (!ctx) return
 
     const initializeParticles = () => {
-      const spacing = 8 // Updated spacing from 10 to 8 for consistency with Analyze and Think
+      const spacing = 6
       const cols = Math.ceil(canvas.width / spacing)
       const rows = Math.ceil(canvas.height / spacing)
 
@@ -46,7 +46,7 @@ export function ConnectionAnimation({ shape = "circle" }: { shape?: "circle" | "
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
           const opacity = Math.random()
-          const baseSize = Math.random() * 1.5 + 1 // Updated baseSize from (0.3-1) to (1-2.5) to match Analyze and Think
+          const baseSize = Math.random() * 1.5 + 1
           const size = baseSize
           const distanceFromLeft = col
 
@@ -57,7 +57,7 @@ export function ConnectionAnimation({ shape = "circle" }: { shape?: "circle" | "
             targetOpacity: opacity,
             size,
             targetSize: size,
-            flickerSpeed: Math.random() * 0.08 + 0.05,
+            flickerSpeed: Math.random() * 0.12 + 0.08,
             scale: 1,
             targetScale: 1,
             distanceFromLeft,
@@ -176,9 +176,9 @@ export function ConnectionAnimation({ shape = "circle" }: { shape?: "circle" | "
         particle.targetSize = baseSize
 
         // Smooth transitions with easing
-        particle.opacity += (particle.targetOpacity - particle.opacity) * (particle.flickerSpeed * 0.6) // Increased flickerSpeed multiplier from 0.4 to 0.6 for faster transitions
-        particle.size += (particle.targetSize - particle.size) * (particle.flickerSpeed * 0.6)
-        particle.scale += (particle.targetScale - particle.scale) * (particle.flickerSpeed * 0.6)
+        particle.opacity += (particle.targetOpacity - particle.opacity) * (particle.flickerSpeed * 0.95)
+        particle.size += (particle.targetSize - particle.size) * (particle.flickerSpeed * 0.95)
+        particle.scale += (particle.targetScale - particle.scale) * (particle.flickerSpeed * 0.95)
 
         const finalSize = particle.size * particle.scale
 

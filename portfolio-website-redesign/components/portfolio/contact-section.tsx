@@ -30,9 +30,11 @@ export function ContactSection() {
   }
 
   const contactLinks = [
-    { label: "Email", value: "ayush@example.com", icon: "✉" },
-    { label: "GitHub", value: "github.com/ayush", icon: "◉" },
-    { label: "LinkedIn", value: "linkedin.com/in/ayush", icon: "in" },
+    { label: "Email", value: "khandekunal85@gmail.com", icon: "✉" },
+    { label: "GitHub", value: "github.com/Kunalkh05", icon: "◉" },
+    { label: "LinkedIn", value: "linkedin.com/in/kunal-khande", icon: "in" },
+    { label: "Phone", value: "+91 77099 80370", icon: "📞" },
+    { label: "Location", value: "Nagpur, Maharashtra", icon: "📍" },
   ]
 
   return (
@@ -40,7 +42,7 @@ export function ContactSection() {
       <div className="max-w-2xl mx-auto px-6 py-16 w-full my-auto pointer-events-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">Contact</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-10">
           {contactLinks.map((link, index) => (
             <div key={index} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-4 text-center hover:bg-white/20 transition-all duration-300">
               <p className="text-white/60 text-sm mb-1">{link.label}</p>

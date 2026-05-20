@@ -36,7 +36,7 @@ export function AbsorptionAnimation({ shape = "circle" }: { shape?: "circle" | "
     if (!ctx) return
 
     const initializeParticles = () => {
-      const spacing = 8
+      const spacing = 6
       const cols = Math.ceil(canvas.width / spacing)
       const rows = Math.ceil(canvas.height / spacing)
 
@@ -60,7 +60,7 @@ export function AbsorptionAnimation({ shape = "circle" }: { shape?: "circle" | "
             targetOpacity: opacity,
             size,
             targetSize: size,
-            flickerSpeed: Math.random() * 0.08 + 0.05,
+            flickerSpeed: Math.random() * 0.12 + 0.08,
             scale: 1,
             targetScale: 1,
             distanceFromCenter,
@@ -174,9 +174,9 @@ export function AbsorptionAnimation({ shape = "circle" }: { shape?: "circle" | "
         particle.targetScale = maxScale
         particle.targetSize = baseSize
 
-        particle.opacity += (particle.targetOpacity - particle.opacity) * (particle.flickerSpeed * 0.6)
-        particle.size += (particle.targetSize - particle.size) * (particle.flickerSpeed * 0.6)
-        particle.scale += (particle.targetScale - particle.scale) * (particle.flickerSpeed * 0.6)
+        particle.opacity += (particle.targetOpacity - particle.opacity) * (particle.flickerSpeed * 0.95)
+        particle.size += (particle.targetSize - particle.size) * (particle.flickerSpeed * 0.95)
+        particle.scale += (particle.targetScale - particle.scale) * (particle.flickerSpeed * 0.95)
 
         const finalSize = particle.size * particle.scale
 

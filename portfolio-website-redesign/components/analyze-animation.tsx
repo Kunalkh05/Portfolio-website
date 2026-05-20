@@ -68,6 +68,7 @@ export function ThinkingAnimation({ shape }: { shape: ShapeType }) {
   const connectionsRef = useRef<Connection[]>([])
   const animationFrameRef = useRef<number>()
   const gridInfoRef = useRef({ cols: 0, rows: 0, spacing: 20 })
+  const mouseRef = useRef({ x: -1000, y: -1000 })
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -77,7 +78,7 @@ export function ThinkingAnimation({ shape }: { shape: ShapeType }) {
     if (!ctx) return
 
     const initializeParticles = () => {
-      const spacing = 8
+      const spacing = 6
       const cols = Math.ceil(canvas.width / spacing)
       const rows = Math.ceil(canvas.height / spacing)
 
@@ -96,7 +97,7 @@ export function ThinkingAnimation({ shape }: { shape: ShapeType }) {
             targetOpacity: opacity,
             size,
             targetSize: size,
-            flickerSpeed: Math.random() * 0.08 + 0.05,
+            flickerSpeed: Math.random() * 0.12 + 0.08,
             scale: 1,
             targetScale: 1,
             gridCol: col,
@@ -248,9 +249,9 @@ export function ThinkingAnimation({ shape }: { shape: ShapeType }) {
           particle.targetScale = 1 + Math.random() * 0.15
         }
 
-        particle.opacity += (particle.targetOpacity - particle.opacity) * (particle.flickerSpeed * 0.6)
-        particle.size += (particle.targetSize - particle.size) * (particle.flickerSpeed * 0.6)
-        particle.scale += (particle.targetScale - particle.scale) * (particle.flickerSpeed * 0.6)
+        particle.opacity += (particle.targetOpacity - particle.opacity) * (particle.flickerSpeed * 0.95)
+        particle.size += (particle.targetSize - particle.size) * (particle.flickerSpeed * 0.95)
+        particle.scale += (particle.targetScale - particle.scale) * (particle.flickerSpeed * 0.95)
 
         const finalSize = particle.size * particle.scale
 

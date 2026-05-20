@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Ayush Khande - Portfolio",
-  description: "CS student and aspiring LLM Engineer showcasing projects, skills, and experience",
+  title: "Kunal Vinod Khande - Portfolio",
+  description: "Computer Science student showcasing web development and AI/ML projects, skills, and qualifications.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -43,9 +43,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    // <CHANGE> Added background color to html tag for mobile
-    <html lang="en" className="bg-background">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" className="bg-black dark">
+      <body className={`font-sans antialiased bg-black text-white`}>
         {children}
         <Analytics />
       </body>

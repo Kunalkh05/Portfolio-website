@@ -1,20 +1,18 @@
 export function ProjectsSection() {
   const projects = [
     {
-      title: "Student-Centric Digital Marketplace",
-      description: "A platform for students to buy and sell used academic books.",
-      technologies: ["HTML", "CSS", "JavaScript"],
+      title: "NetNest — Campus Exchange Hub",
+      description: "A full-stack campus marketplace for students to buy and sell books, notes, and study materials. Features real-time in-app chat, offer system, email/Google authentication, and listing moderation via an admin panel. Integrated Framer Motion for rich animations and spring physics.",
+      technologies: ["React", "TypeScript", "Firebase (Auth, Firestore, Storage)", "Framer Motion", "Vercel"],
+      github: "https://github.com/Kunalkh05/campus-exchange-hub-main",
+      demo: "https://netnest-campus-exchange.web.app"
     },
     {
-      title: "Event Management Website",
-      description: "Website for a college tech event with registration forms.",
-      technologies: ["HTML", "CSS", "Google Forms"],
-    },
-    {
-      title: "AI Chatbot (Beginner Level)",
-      description: "Integrated a basic AI chatbot into a web application.",
-      technologies: ["Python", "JavaScript"],
-    },
+      title: "Student Expense & Education Loan Planner",
+      description: "Collaborated in a team to build an interactive financial planning tool for students to manage expenses, budget efficiently, and structure education loan payments. Delivered as a working prototype under time-constrained hackathon conditions (Team CodeVengers).",
+      technologies: ["Python", "JavaScript", "HTML5", "CSS3", "Git"],
+      github: "https://github.com/Kunalkh05/hackathon-project-CodeVengers"
+    }
   ]
 
   return (
@@ -25,13 +23,27 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:bg-white/20 transition-all duration-300"
+              className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:bg-white/20 transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.37)]"
             >
-              <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-              <p className="text-white/80 mb-4 text-lg">{project.description}</p>
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-3 gap-2">
+                <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                <div className="flex gap-3 text-sm">
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 hover:underline font-semibold transition-colors">
+                      GitHub ↗
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 hover:underline font-semibold transition-colors">
+                      Live Demo ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+              <p className="text-white/80 mb-4 text-base leading-relaxed">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span key={techIndex} className="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-medium">
                     {tech}
                   </span>
                 ))}
