@@ -19,28 +19,30 @@ export function SkillsSection() {
   ]
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none overflow-y-auto">
-      <div className="max-w-5xl mx-auto px-6 py-16 w-full my-auto pointer-events-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">Skills</h2>
+    <div className="absolute inset-0 z-10 pointer-events-none overflow-y-auto">
+      <div className="min-h-full flex items-center justify-center">
+        <div className="max-w-5xl mx-auto px-3 sm:px-6 py-10 sm:py-16 pb-20 w-full pointer-events-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-12 text-center">Skills</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="space-y-4">
-              <h3 className="text-xl font-semibold text-white/90 border-b border-white/20 pb-2">
-                {category.title}
-              </h3>
-              <div className="space-y-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <div
-                    key={skillIndex}
-                    className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-3 text-center hover:bg-white/20 transition-all duration-300"
-                  >
-                    <p className="text-white font-medium">{skill}</p>
-                  </div>
-                ))}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            {skillCategories.map((category, index) => (
+              <div key={index} className="space-y-2 sm:space-y-3">
+                <h3 className="text-xs sm:text-base lg:text-xl font-semibold text-white/90 border-b border-white/20 pb-1.5 sm:pb-2">
+                  {category.title}
+                </h3>
+                <div className="space-y-1.5 sm:space-y-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skillIndex}
+                      className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-1.5 sm:p-3 text-center hover:bg-white/20 transition-all duration-300"
+                    >
+                      <p className="text-white font-medium text-[11px] sm:text-sm">{skill}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
