@@ -123,26 +123,28 @@ export default function Page() {
       <audio ref={shapeAudioRef} src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/select-forms-Y6f2sUOHatrkKO1eoSZpRtMTCUUzTD.mp3" preload="auto" />
 
       {/* Background animation */}
-      <AnimatePresence mode="sync">
+      <AnimatePresence mode="wait">
         <motion.div
           key={`anim-${mode}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={transition}
+          transition={{ duration: prefersReducedMotion ? 0.01 : 0.4, ease: "easeInOut" }}
+          className="absolute inset-0"
         >
           {animationMap[mode]}
         </motion.div>
       </AnimatePresence>
 
       {/* Page content */}
-      <AnimatePresence mode="sync">
+      <AnimatePresence mode="wait">
         <motion.div
           key={`content-${mode}`}
-          initial={{ opacity: 0, y: yOffset }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -yOffset }}
-          transition={contentTransition}
+          initial={{ opacity: 0, y: prefersReducedMotion ? 0 : 20, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: prefersReducedMotion ? 0 : -12, scale: 0.98 }}
+          transition={{ duration: prefersReducedMotion ? 0.01 : 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="absolute inset-0"
         >
           {contentMap[mode]}
         </motion.div>
